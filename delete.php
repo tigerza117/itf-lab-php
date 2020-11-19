@@ -8,15 +8,7 @@ if (!isset($_POST['id']) || empty($_POST['id'])) {
     return;
 }
 
-$conn = mysqli_init();
-mysqli_real_connect($conn, '63070092-db.mysql.database.azure.com', 'tigerza117@63070092-db', '0880880880Za', 'itflab', 3306);
-if (mysqli_connect_errno($conn)) {
-    echo json_encode([
-        'code' => 500,
-        'message' => 'Failed to connect to MySQL: ' . mysqli_connect_error(),
-    ]);
-    return;
-}
+require 'connections.php';
 
 $id = $_POST['id'];
 
