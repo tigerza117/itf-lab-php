@@ -23,7 +23,7 @@ $name = $_POST['name'];
 $comment = $_POST['comment'];
 $link = $_POST['link'];
 
-$conn = $conn->prepare("UPDATE guestbook SET Name = :name, Comment = :comment, Link = :link WHERE ID=:id");
+$stmt = $conn->prepare("UPDATE guestbook SET Name = :name, Comment = :comment, Link = :link WHERE ID=:id");
 $stmt->bindParam(':id', $id);
 $stmt->bindParam(':name', $name);
 $stmt->bindParam(':comment', $comment);

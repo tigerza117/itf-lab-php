@@ -22,7 +22,7 @@ $name = $_POST['name'];
 $comment = $_POST['comment'];
 $link = $_POST['link'];
 
-$conn = $conn->prepare("INSERT INTO guestbook (Name , Comment , Link) VALUES (:name, :comment, :link)");
+$stmt = $conn->prepare("INSERT INTO guestbook (Name , Comment , Link) VALUES (:name, :comment, :link)");
 $stmt->bindParam(':name', $name);
 $stmt->bindParam(':comment', $comment);
 $stmt->bindParam(':link', $link);

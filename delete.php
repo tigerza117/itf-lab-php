@@ -20,7 +20,7 @@ if (mysqli_connect_errno($conn)) {
 
 $id = $_POST['id'];
 
-$conn = $conn->prepare("DELETE FROM guestbook WHERE ID=:id");
+$stmt = $conn->prepare("DELETE FROM guestbook WHERE ID=:id");
 $stmt->bindParam(':id', $id);
 
 if ($stmt->execute()) {
