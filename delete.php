@@ -10,7 +10,7 @@ if (!isset($_POST['id']) || empty($_POST['id'])) {
 
 require 'connections.php';
 
-$id = $_POST['id'];
+$id = htmlentities($_POST['id']);
 
 $stmt = $conn->prepare("DELETE FROM guestbook WHERE ID=:id");
 $stmt->bindParam(':id', $id);
@@ -27,4 +27,4 @@ if ($stmt->execute()) {
     ]);
 }
 
-mysqli_close($conn);
+$conn = null;

@@ -102,7 +102,7 @@ $res = mysqli_query($conn, 'SELECT * FROM guestbook');
             </tbody>
         </table>
     </div>
-    <?php mysqli_close($conn);?>
+    <?php $conn = null;?>
 </body>
 <!-- Don't Copy 63070092 -->
 <script>

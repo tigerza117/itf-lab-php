@@ -10,9 +10,9 @@ if (!isset($_POST['name']) || !isset($_POST['comment']) || !isset($_POST['link']
 
 require 'connections.php';
 
-$name = $_POST['name'];
-$comment = $_POST['comment'];
-$link = $_POST['link'];
+$name = htmlentities($_POST['name']);
+$comment = htmlentities($_POST['comment']);
+$link = htmlentities($_POST['link']);
 
 $stmt = $conn->prepare("INSERT INTO guestbook (Name , Comment , Link) VALUES (:name, :comment, :link)");
 $stmt->bindParam(':name', $name);
@@ -31,4 +31,4 @@ if ($stmt->execute()) {
     ]);
 }
 
-mysqli_close($conn);
+$conn = null;

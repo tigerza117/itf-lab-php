@@ -10,10 +10,10 @@ if (!isset($_POST['id']) || empty($_POST['id']) || !isset($_POST['name']) || !is
 
 require 'connections.php';
 
-$id = $_POST['id'];
-$name = $_POST['name'];
-$comment = $_POST['comment'];
-$link = $_POST['link'];
+$id = htmlentities($_POST['id']);
+$name = htmlentities($_POST['name']);
+$comment = htmlentities($_POST['comment']);
+$link = htmlentities($_POST['link']);
 
 $stmt = $conn->prepare("UPDATE guestbook SET Name = :name, Comment = :comment, Link = :link WHERE ID=:id");
 $stmt->bindParam(':id', $id);
@@ -33,4 +33,4 @@ if ($stmt->execute()) {
     ]);
 }
 
-mysqli_close($conn);
+$conn = null;
