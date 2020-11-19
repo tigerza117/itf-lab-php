@@ -110,13 +110,12 @@ function toggleButton(e) {
     e.attr("disabled") ? e.removeAttr("disabled") : e.attr("disabled", !0)
 }
 
-function Edit(data) {
-    console.log(data)
+function Edit({name, comment, link}) {
     Swal.fire({
         title: 'Multiple inputs',
-        html: '<input id="swal-input1" class="swal2-input">' +
-            '<input id="swal-input2" class="swal2-input">' +
-            '<input id="swal-input3" class="swal2-input">',
+        html: '<input id="swal-input1" class="swal2-input" value="'+name+'">' +
+            '<input id="swal-input2" class="swal2-input" value="'+comment+'">' +
+            '<input id="swal-input3" class="swal2-input" value="'+link+'">',
         focusConfirm: true,
         allowOutsideClick: false,
         preConfirm: () => {
