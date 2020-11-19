@@ -20,9 +20,10 @@ if (mysqli_connect_errno($conn)) {
 
 $id = $_POST['id'];
 
-$sql = "DELETE FROM guestbook WHERE ID='$id'";
+$conn = $conn->prepare("DELETE FROM guestbook WHERE ID=:id");
+$stmt->bindParam(':id', $id);
 
-if (mysqli_query($conn, $sql)) {
+if ($stmt->execute()) {
     echo json_encode([
         'code' => 200,
         'message' => 'สำเร็จ',

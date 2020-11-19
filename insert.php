@@ -22,9 +22,12 @@ $name = $_POST['name'];
 $comment = $_POST['comment'];
 $link = $_POST['link'];
 
-$sql = "INSERT INTO guestbook (Name , Comment , Link) VALUES ('$name', '$comment', '$link')";
+$conn = $conn->prepare("INSERT INTO guestbook (Name , Comment , Link) VALUES (:name, :comment, :link)");
+$stmt->bindParam(':name', $name);
+$stmt->bindParam(':comment', $comment);
+$stmt->bindParam(':link', $link);
 
-if (mysqli_query($conn, $sql)) {
+if ($stmt->execute()) {
     echo json_encode([
         'code' => 200,
         'message' => 'สำเร็จ',
@@ -32,7 +35,7 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo json_encode([
         'code' => 500,
-        'message' => "Error: " . $sql . "<br>" . mysqli_error($conn),
+        'message' => "Error: SQL",
     ]);
 }
 
