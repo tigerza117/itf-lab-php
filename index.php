@@ -94,7 +94,7 @@ $res = mysqli_query($conn, 'SELECT * FROM guestbook');
                     <td><?php echo $Result['Comment']; ?></td>
                     <td><?php echo $Result['Link']; ?></td>
                     <td align="center"><button class="btn btn-primary"
-                            onclick="Edit(<?php echo json_encode(['name' => $Result['Name'], 'comment' => $Result['Comment'], 'link' => $Result['Link']], JSON_FORCE_OBJECT); ?>)">Edit</button>
+                            onclick='Edit(<?php echo json_encode(['name' => $Result['Name'], 'comment' => $Result['Comment'], 'link' => $Result['Link']]); ?>)'>Edit</button>
                         <button class="btn btn-danger" onclick="Delete(<?php echo $Result['ID']; ?>)">Del</button>
                     </td>
                 </tr>
