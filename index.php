@@ -38,7 +38,7 @@ $res = mysqli_query($conn, 'SELECT * FROM guestbook');
 
 <body class="bg-light">
     <div class="container bg-white mx-auto mt-3 rounded shadow-lg mb-3">
-        <form method="post" id="insert" class="p-4">
+        <form id="insert" class="p-4">
             <div class="d-flex mb-2">
                 <div class="w-50 mr-2">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="idLink">
@@ -94,7 +94,7 @@ $res = mysqli_query($conn, 'SELECT * FROM guestbook');
                     <td><?php echo $Result['Comment']; ?></td>
                     <td><?php echo $Result['Link']; ?></td>
                     <td align="center"><button class="btn btn-primary"
-                            onclick="Edit(<?php echo json_decode(['name' => $Result['Name'], 'comment' => $Result['Comment'], 'link' => $Result['Link']]); ?>)">Edit</button>
+                            onclick="Edit(<?php echo json_encode(['name' => $Result['Name'], 'comment' => $Result['Comment'], 'link' => $Result['Link']], JSON_FORCE_OBJECT); ?>)">Edit</button>
                         <button class="btn btn-danger" onclick="Delete(<?php echo $Result['ID']; ?>)">Del</button>
                     </td>
                 </tr>
