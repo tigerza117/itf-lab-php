@@ -5,7 +5,7 @@ $_DATABASE['username'] = 'tigerza117@63070092-db';
 $_DATABASE['password'] = '0880880880Za';
 $_DATABASE['port'] = "3306";
 $_DATABASE['charset'] = 'utf8mb4';
-
+//You can't connection XD Azure close my db
 $options = [
     \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
     \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
